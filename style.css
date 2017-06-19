@@ -1,0 +1,30 @@
+body{
+	width: 300px;
+	margin: auto;
+}
+
+#main{
+	background-color: #05fafa;
+	width: 96%;
+	border: 1px solid #877885;
+}
+
+#buttonArea{
+	width: 90%;
+	margin: auto;
+	margin-top: 6px;
+}
+
+#displayArea{
+	width: 90%;
+	margin: auto;
+	margin-top: 6px;
+}
+
+textarea{
+	margin: auto;
+}
+
+.button{
+	width: 20%;
+}
