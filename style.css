@@ -1,24 +1,28 @@
 body{
-	width: 300px;
 	margin: auto;
 }
 
 #main{
 	background-color: #05fafa;
-	width: 96%;
+	width: 300px;
+	height: 300px;
 	border: 1px solid #877885;
+	margin: auto;
 }
 
 #buttonArea{
-	width: 90%;
+	width: 96%;
 	margin: auto;
 	margin-top: 6px;
+	text-align: center;
+	height: 200px;
 }
 
 #displayArea{
 	width: 90%;
 	margin: auto;
 	margin-top: 6px;
+	text-align: center;
 }
 
 textarea{
@@ -26,5 +30,6 @@ textarea{
 }
 
 .button{
-	width: 20%;
+	width: 22%;
+	height: 30px;
 }
