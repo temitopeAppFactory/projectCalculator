@@ -7,7 +7,7 @@
 		<link rel="stylesheet" type="text/css" href="style.css"/>
 	</head>
 	<body bgcolor="#F0F0FF">
-		<p><span style="font-size: 36px; font-weight: bold;">Kaku</span><span style="color: red; font-style: italic;">...do anything</span></p>
+		<p style="margin-top: 100px;"><span style="font-size: 36px; font-weight: bold;">Kaku</span><span style="color: red; font-style: italic;">...do anything</span></p>
 		<div id="main">
 			<form name="Calculator">
 				<div id="displayArea">
@@ -32,14 +32,22 @@
 	 				<input class="button" type="button" name="three" value="3" onclick="AddDigit('3')">
 	 				<input class="button" type="button" name="add" value="+" onclick="Operate('+')">
 	 				
-	  				<input class="button" type="button" name="plusmin" value="+/-" onclick="PlusMinus()">
+	  				<input class="button" type="button" name="plusmin" value="+/-" onclick="ToggleSign()">
 	  				<input class="button" type="button" name="one" value="0" onclick="AddDigit('0')">
 	  				<input class="button" type="button" name="two" value="." onclick="Dot()">
 	  				<input class="button" type="button" name="sub" value="-" onclick="Operate('-')">
 	  				
-	  				<input class="button" type="button" name="clear" value="C" onclick="Clear()">
+	  				
+	  				<input class="button" type="button" name="delete" value="<-">
 	  				<input class="button" type="button" name="result" value="=" onclick="Calculate()">
+	  				<button type="button" class="button" name="exponent" value="e" onclick="DoExponent()">e</button>
+	  				<input type="button" class="button" name="mod" value="%" onclick="Operate('%')">
+	  				<input class="button" type="button" name="clear" value="C" onclick="Clear()">
 	  				<input class="button" type="button" name="AC" value="AC" onclick="AllClear()">
+	  				
+	  				<!-- <input type="button" class="button" name="square" value="x^2" onclick="Operate('^')">
+	  				<input type="button" class="button" name="root" value="vx" onclick="Operate('v')"> -->
+	  				
 	  			</div>
 			</form>
 		</div>

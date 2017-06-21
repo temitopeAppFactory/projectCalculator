@@ -1,7 +1,7 @@
 Memory  = "0";      // initialise memory variable
-    Current = "0";      //   and value of Display ("current" value)
-    Operation = 0;      // Records code for eg * / etc.
-    MAXLENGTH = 30;     // maximum number of digits before decimal!
+Current = "0";      //   and value of Display ("current" value)
+Operation = 0;      // Records code for eg * / etc.
+MAXLENGTH = 30;     // maximum number of digits before decimal!
 
 function AddDigit(dig)          //ADD A DIGIT TO DISPLAY (keep as 'Current')
  { if (Current.indexOf("!") == -1)  //if not already an error
@@ -46,7 +46,7 @@ function DoExponent()
        };
  }
 
-function PlusMinus()
+function ToggleSign()
  {
   if  (Current.indexOf("e") != -1)
     { var epos = Current.indexOf("e-");
@@ -86,13 +86,13 @@ function Operate(op)            //STORE OPERATION e.g. + * / etc.
  if (Operation != 0) { Calculate(); }; //'Press "=" if pending operation!
  // note that design is not good for showing *intermediate* results.
 
-  if (op.indexOf("*") > -1) { Operation = 1; };       //codes for *
-  if (op.indexOf("/") > -1) { Operation = 2; };       // slash (divide)
-  if (op.indexOf("+") > -1) { Operation = 3; };       // sum
-  if (op.indexOf("-") > -1) { Operation = 4; };       // difference
+  if (op.indexOf("*") > -1) { Operation = 1; };			//for multiplication
+  if (op.indexOf("/") > -1) { Operation = 2; };			//for divide
+  if (op.indexOf("+") > -1) { Operation = 3; };			//for sum
+  if (op.indexOf("-") > -1) { Operation = 4; };			//for difference
+  if (op.indexOf("%") > -1) { Operation = 5; };			//for modulus
 
   Memory = Current;                 //store value
-  // note how e.g. Current.value gives neither error nor value! ***
   Current = "";
   document.Calculator.Display.value = Current;
  }
@@ -104,19 +104,20 @@ function Calculate()            //PERFORM CALCULATION (= button)
     { if (eval(Current) != 0)
       { Current = eval(Memory) / eval(Current)
       } else
-      { Current = "Aargh! Divide by zero"; //don't allow over MAXLENGTH digits before "." ???
+      { Current = "Error: can't divide by zero!";
       }
     };
   if (Operation == 3) { Current = eval(Memory) + eval(Current); };
   if (Operation == 4) { Current = eval(Memory) - eval(Current); };
+  if (Operation == 5) { Current = eval(Memory) % eval(Current); };
   Operation = 0;                //clear operation
   Memory = "0";                  //clear memory
   Current = Current + "";       //FORCE A STRING!
   if (Current.indexOf("Infinity") != -1)        //eg "1e320" * 1
-    { Current = "Aargh! Value too big";
+    { Current = "Error: maximum value exceeded!";
     };
   if (Current.indexOf("NaN") != -1)        //eg "1e320" / "1e320"
-    { Current = "Aargh! I don't understand";
+    { Current = "Error: You've entered a non-numeric!";
     };
   document.Calculator.Display.value = Current;
   // NOTE: if no operation, nothing changes, Current is left the same!
