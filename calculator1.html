@@ -1,54 +1,48 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="utf-8">
-		<title>Calculat8r</title>
+		<meta charset="utf-8"/>
+	  	<title>Kaku</title>
+		<script type="text/javascript" src="script.js"></script>
 		<link rel="stylesheet" type="text/css" href="style.css"/>
 	</head>
-	<body>
-	<h1 style="text-align: center;">Calculator</h1>
-	<form>
-	<div id="main">
+	<body bgcolor="#F0F0FF">
+		<p><span style="font-size: 36px; font-weight: bold;">Kaku</span><span style="color: red; font-style: italic;">...do anything</span></p>
+		<div id="main">
+			<form name="Calculator">
+				<div id="displayArea">
+					<!-- <input type="text" maxlength="40" size="25" name="Display" onChange="FixCurrent()"> -->
+					<textarea cols="30" maxlength="40" rows="5" name="Display" onchange="FixCurrent()"></textarea>
 		
-		
-		<div id="displayArea">
-		<textarea name="result" rows="5" cols="30"></textarea>
-		<!-- <input type="text"/> -->
+				</div>
+
+				<div id="buttonArea">
+					<input class="button" type="button" name="seven" value="7" onclick="AddDigit('7')">
+	 				<input class="button" type="button" name="eight" value="8" onclick="AddDigit('8')">
+	 				<input class="button" type="button" name="nine" value="9" onclick="AddDigit('9')">
+	 				<input class="button" type="button" name="div" value="/" onclick="Operate('/')">
+	 				
+	  				<input class="button" type="button" name="four" value="4" onclick="AddDigit('4')">
+	  				<input class="button" type="button" name="five" value="5" onclick="AddDigit('5')">
+	  				<input class="button" type="button" name="six" value="6" onclick="AddDigit('6')">
+	  				<input class="button" type="button" name="mul" value="*" onclick="Operate('*')">
+	  				
+					<input class="button" type="button" name="one" value="1" onclick="AddDigit('1')">
+					<input class="button" type="button" name="two" value="2" onclick="AddDigit('2')">
+	 				<input class="button" type="button" name="three" value="3" onclick="AddDigit('3')">
+	 				<input class="button" type="button" name="add" value="+" onclick="Operate('+')">
+	 				
+	  				<input class="button" type="button" name="plusmin" value="+/-" onclick="PlusMinus()">
+	  				<input class="button" type="button" name="one" value="0" onclick="AddDigit('0')">
+	  				<input class="button" type="button" name="two" value="." onclick="Dot()">
+	  				<input class="button" type="button" name="sub" value="-" onclick="Operate('-')">
+	  				
+	  				<input class="button" type="button" name="clear" value="C" onclick="Clear()">
+	  				<input class="button" type="button" name="result" value="=" onclick="Calculate()">
+	  				<input class="button" type="button" name="AC" value="AC" onclick="AllClear()">
+	  			</div>
+			</form>
 		</div>
-		
-		<div id="buttonArea">
-			<button type="button" class="button" name="seven" value="7">7</button>
-			<button type="button" class="button" name="eigth" value="8">8</button>
-			<button type="button" class="button" name="nine" value="9">9</button>
-			<button type="button" class="button" name="divide">/</button><br />
-			
-			<button type="button" class="button" name="four" value="4">4</button>
-			<button type="button" class="button" name="five" value="5">5</button>
-			<button type="button" class="button" name="six" value="6">6</button>
-			<button type="button" class="button" name="multiply">*</button><br />
-			
-			<button type="button" class="button" name="one" value="1">1</button>
-			<button type="button" class="button" name="two" value="2">2</button>
-			<button type="button" class="button" name="three" value="3">3</button>
-			<button type="button" class="button" name="subtract">-</button><br />
-			
-			<button type="button" class="button" name="decimal">.</button>
-			<button type="button" class="button" name="zero" value="0">0</button>
-			<button type="button" class="button" name="sign">+/-</button>
-			<button type="button" class="button" name="add">+</button><br />
-			
-			<button type="button" class="button" name="delete">C</button>
-			<button type="button" class="button" name="equals" style="width: 100px;">=</button>
-			<button type="button" class="button" name="mod">%</button><br />
-			
-			<button type="button" class="button" name="root">v</button>
-			<input type="reset" class="button" name="clearAll" value="AC" style="width: 100px;"/>
-			<button type="button" class="button" name="exponent">e</button>
-			
-		</div>
-	
-	</div>
-	</form>
-		
 	</body>
 </html>
+
