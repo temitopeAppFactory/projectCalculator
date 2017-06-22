@@ -1,9 +1,9 @@
-Memory  = "0";      // initialise memory variable
-Current = "0";      //   and value of Display ("current" value)
-Operation = 0;      // Records code for eg * / etc.
-MAXLENGTH = 30;     // maximum number of digits before decimal!
+Memory  = "0";
+Current = "0";
+Operation = 0;
+MAXLENGTH = 30;
 
-function AddDigit(dig)          //ADD A DIGIT TO DISPLAY (keep as 'Current')
+function AddDigit(dig)
  { if (Current.indexOf("!") == -1)  //if not already an error
     { if (    (eval(Current) == 0)
               && (Current.indexOf(".") == -1)
@@ -11,23 +11,23 @@ function AddDigit(dig)          //ADD A DIGIT TO DISPLAY (keep as 'Current')
            } else
            { Current = Current + dig;
            };
-      Current = Current.toLowerCase(); //FORCE LOWER CASE
+      Current = Current.toLowerCase(); //for to lower case
     } else
-    { Current = "Hint! Press 'AC'";  //Help out, if error present.
+    { Current = "Hint! Press 'AC'";  //help
     };
    if (Current.indexOf("e0") != -1)
      { var epos = Current.indexOf("e");
        Current = Current.substring(0,epos+1) + Current.substring(epos+2);
      };
   if (Current.length > MAXLENGTH)
-     { Current = "Aargh! Too long"; //don't allow over MAXLENGTH digits before "." ???
+     { Current = "Aargh! Too long"; //error message
      };
    document.Calculator.Display.value = Current;
  }
 
-function Dot()                  //PUT IN "." if appropriate.
+function Dot()                  //PUT IN "."
  {
-  if ( Current.length == 0)     //no leading ".", use "0."
+  if ( Current.length == 0)     //if you press dot with zero change t 0.
     { Current = "0.";
     } else
     {  if (   ( Current.indexOf(".") == -1)
@@ -51,10 +51,10 @@ function ToggleSign()
   if  (Current.indexOf("e") != -1)
     { var epos = Current.indexOf("e-");
       if (epos != -1)
-         { Current = Current.substring(0,1+epos) + Current.substring(2+epos); //clip out -ve exponent 
+         { Current = Current.substring(0,1+epos) + Current.substring(2+epos); //remove -ve exponent 
          } else
          { epos = Current.indexOf("e");
-           Current = Current.substring(0,1+epos) + "-" + Current.substring(1+epos); //insert -ve exponent
+           Current = Current.substring(0,1+epos) + "-" + Current.substring(1+epos); //add -ve exponent
          };
     } else
     {  if ( Current.indexOf("-") == 0 )
@@ -83,8 +83,7 @@ function AllClear()             //Clear ALL entries!
 
 function Operate(op)            //STORE OPERATION e.g. + * / etc.
  {
- if (Operation != 0) { Calculate(); }; //'Press "=" if pending operation!
- // note that design is not good for showing *intermediate* results.
+ if (Operation != 0) { Calculate(); };
 
   if (op.indexOf("*") > -1) { Operation = 1; };			//for multiplication
   if (op.indexOf("/") > -1) { Operation = 2; };			//for divide
@@ -113,14 +112,13 @@ function Calculate()            //PERFORM CALCULATION (= button)
   Operation = 0;                //clear operation
   Memory = "0";                  //clear memory
   Current = Current + "";       //FORCE A STRING!
-  if (Current.indexOf("Infinity") != -1)        //eg "1e320" * 1
+  if (Current.indexOf("Infinity") != -1)
     { Current = "Error: maximum value exceeded!";
     };
   if (Current.indexOf("NaN") != -1)        //eg "1e320" / "1e320"
     { Current = "Error: You've entered a non-numeric!";
     };
   document.Calculator.Display.value = Current;
-  // NOTE: if no operation, nothing changes, Current is left the same!
  }
 
 function FixCurrent()
@@ -128,7 +126,19 @@ function FixCurrent()
   Current = document.Calculator.Display.value;
   Current = "" + parseFloat(Current);
   if (Current.indexOf("NaN") != -1)
-    { Current = "Aargh! I don't understand";
+    { Current = "Enter a number please";
     };
   document.Calculator.Display.value = Current;
  }
+ 
+ function del(){
+				Current = document.Calculator.Display.value;
+				epp = Current.length;
+				a = epp - 1;
+				Current = Current.substring(0, a);
+				document.Calculator.Display.value = Current;
+			}
+
+function mul(){
+	
+}			
