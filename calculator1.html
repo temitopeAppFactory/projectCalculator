@@ -4,67 +4,64 @@
 		<meta charset="utf-8"/>
 	  	<title>Kaku</title>
 		<script type="text/javascript" src="script.js"></script>
-		<script>
-			function ruth (){
-	word = document.Calculator.Display.value;
-	result = Math.sqrt(word);
-	document.Calculator.Display.value = result;
-	
-}
-
-function sqre(){
-	word = document.Calculator.Display.value;
-	word = Math.pow(word,2);
-	document.Calculator.Display.value = word;
-	}
-		</script>
 		<link rel="stylesheet" type="text/css" href="style.css"/>
 	</head>
 	<body bgcolor="#F0F0FF">
-		<p style="margin-top: 100px;"><span style="font-size: 36px; font-weight: bold;">Kaku</span><span style="color: red; font-style: italic;">...do anything</span></p>
+		<p style="margin-top: 20px;"><span style="font-size: 36px; font-weight: bold;">Kaku</span><span style="color:#ea5a15; font-style: italic;">...do anything</span></p>
 		<div id="main">
 			<form name="Calculator">
-				<span style="font-size: 10px; color: grey; margin-top: 0; margin-left: 2px; padding-top: 0;"><strong></st>Kaku 1.0</strong></span>
+				<span style="font-size: 10px; color: grey; margin-top: 0; margin-left: 10px; padding-top: 0;"><strong>Kaku 1.0</strong></span>
+				
 				<div id="displayArea">
 					<!-- <input type="text" maxlength="40" size="25" name="Display" onChange="FixCurrent()"> -->
-					<textarea cols="25" maxlength="40" rows="3" name="Display" onchange="FixCurrent()"></textarea>
+					<textarea cols="35" maxlength="40" rows="5" name="Display" placeholder="0"></textarea>
 		
 				</div>
 
 				<div id="buttonArea">
-					<input class="button" type="button" name="seven" value="7" onclick="AddDigit('7')">
-	 				<input class="button" type="button" name="eight" value="8" onclick="AddDigit('8')">
-	 				<input class="button" type="button" name="nine" value="9" onclick="AddDigit('9')">
-	 				<input class="button" type="button" name="div" value="/" onclick="Operate('/')">
-	 				
-	  				<input class="button" type="button" name="four" value="4" onclick="AddDigit('4')">
-	  				<input class="button" type="button" name="five" value="5" onclick="AddDigit('5')">
-	  				<input class="button" type="button" name="six" value="6" onclick="AddDigit('6')">
-	  				<input class="button" type="button" name="mul" value="*" onclick="Operate('*')">
+					
+					<input class="button" type="button"  name="mod" value="%" onclick="document.Calculator.Display.value += '%'">
+					<input class="button" type="button" name="root" value="√" onclick="ruth()">
+					<input class="button" type="button" name="square" value="𝑥²" onclick="sqre()">
+					<input class="button" type="button"  name="inverse" value="1/𝑥" onclick="DoInverse()">
+					
+					<input class="button" type="button" name="clear" value="CE" onclick="clearScreen()">
+					<input class="button" type="button" name="clear" value="C" onclick="clearScreen()">
+					<input class="button" type="button" name="delete" value="<-" onclick="del()">
+					<input class="button" type="button" name="divi" value="/" onclick="document.Calculator.Display.value += '/'">
+					
+					<input class="button" type="button" name="seven" value="7" onclick="document.Calculator.Display.value += '7'">
+	 				<input class="button" type="button" name="eight" value="8" onclick="document.Calculator.Display.value += '8'">
+	 				<input class="button" type="button" name="nine" value="9" onclick="document.Calculator.Display.value += '9'">
+	 				<input class="button" type="button" name="multi" value="*" onclick="document.Calculator.Display.value += '*'">
 	  				
-					<input class="button" type="button" name="one" value="1" onclick="AddDigit('1')">
-					<input class="button" type="button" name="two" value="2" onclick="AddDigit('2')">
-	 				<input class="button" type="button" name="three" value="3" onclick="AddDigit('3')">
-	 				<input class="button" type="button" name="add" value="+" onclick="Operate('+')">
+	 				
+	  				<input class="button" type="button" name="four" value="4" onclick="document.Calculator.Display.value += '4'">
+	  				<input class="button" type="button" name="five" value="5" onclick="document.Calculator.Display.value += '5'">
+	  				<input class="button" type="button" name="six" value="6" onclick="document.Calculator.Display.value += '6'">
+	  				<input class="button" type="button" name="subt" value="-" onclick="document.Calculator.Display.value += '-'">
+	  				
+					<input class="button" type="button" name="one" value="1" onclick="document.Calculator.Display.value += '1'">
+					<input class="button" type="button" name="two" value="2" onclick="document.Calculator.Display.value += '2'">
+	 				<input class="button" type="button" name="three" value="3" onclick="document.Calculator.Display.value += '3'">
+	 				<input class="button" type="button" name="addi" value="+" onclick="document.Calculator.Display.value += '+'">
 	 				
 	  				<input class="button" type="button" name="plusmin" value="+/-" onclick="ToggleSign()">
-	  				<input class="button" type="button" name="one" value="0" onclick="AddDigit('0')">
+	  				<input class="button" type="button" name="zero" value="0" onclick="document.Calculator.Display.value += '0'">
 	  				<input class="button" type="button" name="two" value="." onclick="Dot()">
-	  				<input class="button" type="button" name="sub" value="-" onclick="Operate('-')">
+	  				<input class="button" type="button" name="result" value="=" onclick="equal()">
 	  				
+	  				<div style="margin-top: 10px;">
+	  					
+	  					<span style="font-style: italic; font-size: 10px; color: grey; text-align: center; padding-top: 10px; margin-bottom: 0; padding-bottom: 0;"><strong>kaku calculator &copy; <script>
+	  								var today = new Date();
+	  								var dd = today.getFullYear();
+	  								document.write(dd);
+	  							</script></strong></span>
+	  					
+	  				</div>
 	  				
-	  				<input class="button" type="button" name="delete" value="<-" onclick="del()">
-	  				<input class="button" type="button" name="result" value="=" onclick="Calculate()">
-	  				<button type="button" class="button" name="exponent" value="e" onclick="DoExponent()">e</button>
-	  				<input type="button" class="button" name="mod" value="%" onclick="Operate('%')">
-	  				
-	  				<input class="button" type="button" name="root" value="v" onclick="ruth()">
-	  				<input class="button" type="button" name="clear" value="C" onclick="Clear()">
-	  				<input class="button" type="button" name="AC" value="AC" onclick="AllClear()">
-	  				<input class="button" type="button" name="square" value="^2" onclick="sqre()">
-	  				<!-- <input type="button" class="button" name="square" value="x^2" onclick="Operate('^')">
-	  				<input type="button" class="button" name="root" value="vx" onclick="Operate('v')"> -->
-	  				
+	  							
 	  			</div>
 			</form>
 		</div>
