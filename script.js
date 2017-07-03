@@ -28,12 +28,47 @@ var app = angular.module("calc", []);
 				$scope.display = Math.pow(shw,2);
 		};
 
+
 		$scope.Dot = function(){
-			$scope.display = $scope.display + '.';
+			var shw = $scope.display;
+			/* if (shw.indexOf('.') > -1 ){
+				
+			}else{ } */
+			if(shw.length == 0){
+				$scope.display = "0.";
+			}else{
+				$scope.display = shw + '.';
+			}
 		};
+
 
 		$scope.clearScreen = function(){
 				$scope.display = "";
 		};
+		
+		
+		
+		$scope.DoInverse = function(){
+			var shw = $scope.display;
+			$scope.display = 1/shw;
+		};
+		
+		
+		
+		$scope.ToggleSign = function(){
+			var shw = $scope.display;
+			var ridi =shw.length - 1;
+			if (shw.length > 0){
+			
+			if (shw.indexOf('-') == -1){
+				$scope.display = "-" + shw;
+			}else if(shw.indexOf('-') == 0){
+				$scope.display = shw.substring(1);
+			}else{
+				$scope.display = shw;
+			}
+		};
+				
+			};
 
 		});
