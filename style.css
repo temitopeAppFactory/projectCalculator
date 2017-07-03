@@ -1,6 +1,7 @@
 body{
 	background-image:url('images/Background.png');
 	background-size: cover;
+	background-color: #F0F0FF;
 }
 #main{
 	background-color: #05fafa;

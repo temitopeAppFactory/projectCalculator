@@ -6,7 +6,7 @@
 		<script type="text/javascript" src="script.js"></script>
 		<link rel="stylesheet" type="text/css" href="style.css"/>
 	</head>
-	<body bgcolor="#F0F0FF">
+	<body>
 		<p style="margin-top: 20px;"><span style="font-size: 36px; font-weight: bold;">Kaku</span><span style="color:#ea5a15; font-style: italic;">...do anything</span></p>
 		<div id="main">
 			<form name="Calculator">
@@ -14,40 +14,40 @@
 				
 				<div id="displayArea">
 					<!-- <input type="text" maxlength="40" size="25" name="Display" onChange="FixCurrent()"> -->
-					<textarea cols="35" maxlength="40" rows="5" name="Display" placeholder="0"></textarea>
+					<textarea cols="35" rows="5" name="Display" placeholder="0"></textarea>
 		
 				</div>
 
 				<div id="buttonArea">
 					
-					<input class="button" type="button"  name="mod" value="%" onclick="document.Calculator.Display.value += '%'">
+					<input class="button" type="button"  name="mod" value="%" onclick="Digz('%')">
 					<input class="button" type="button" name="root" value="√" onclick="ruth()">
-					<input class="button" type="button" name="square" value="𝑥²" onclick="sqre()">
+					<input class="button" type="button" name="sqare" value="𝑥²" onclick="sqre()">
 					<input class="button" type="button"  name="inverse" value="1/𝑥" onclick="DoInverse()">
 					
 					<input class="button" type="button" name="clear" value="CE" onclick="clearScreen()">
 					<input class="button" type="button" name="clear" value="C" onclick="clearScreen()">
 					<input class="button" type="button" name="delete" value="<-" onclick="del()">
-					<input class="button" type="button" name="divi" value="/" onclick="document.Calculator.Display.value += '/'">
+					<input class="button" type="button" name="divi" value="/" onclick="Digz('/')">
 					
-					<input class="button" type="button" name="seven" value="7" onclick="document.Calculator.Display.value += '7'">
-	 				<input class="button" type="button" name="eight" value="8" onclick="document.Calculator.Display.value += '8'">
-	 				<input class="button" type="button" name="nine" value="9" onclick="document.Calculator.Display.value += '9'">
-	 				<input class="button" type="button" name="multi" value="*" onclick="document.Calculator.Display.value += '*'">
+					<input class="button" type="button" name="seven" value="7" onclick="Digz('7')">
+	 				<input class="button" type="button" name="eight" value="8" onclick="Digz('8')">
+	 				<input class="button" type="button" name="nine" value="9" onclick="Digz('9')">
+	 				<input class="button" type="button" name="multi" value="*" onclick="Digz('*')">
 	  				
 	 				
-	  				<input class="button" type="button" name="four" value="4" onclick="document.Calculator.Display.value += '4'">
-	  				<input class="button" type="button" name="five" value="5" onclick="document.Calculator.Display.value += '5'">
-	  				<input class="button" type="button" name="six" value="6" onclick="document.Calculator.Display.value += '6'">
-	  				<input class="button" type="button" name="subt" value="-" onclick="document.Calculator.Display.value += '-'">
+	  				<input class="button" type="button" name="four" value="4" onclick="Digz('4')">
+	  				<input class="button" type="button" name="five" value="5" onclick="Digz('5')">
+	  				<input class="button" type="button" name="six" value="6" onclick="Digz('6')">
+	  				<input class="button" type="button" name="subt" value="-" onclick="Digz('-')">
 	  				
-					<input class="button" type="button" name="one" value="1" onclick="document.Calculator.Display.value += '1'">
-					<input class="button" type="button" name="two" value="2" onclick="document.Calculator.Display.value += '2'">
-	 				<input class="button" type="button" name="three" value="3" onclick="document.Calculator.Display.value += '3'">
-	 				<input class="button" type="button" name="addi" value="+" onclick="document.Calculator.Display.value += '+'">
+					<input class="button" type="button" name="one" value="1" onclick="Digz('1')">
+					<input class="button" type="button" name="two" value="2" onclick="Digz('2')">
+	 				<input class="button" type="button" name="three" value="3" onclick="Digz('3')">
+	 				<input class="button" type="button" name="addi" value="+" onclick="Digz('+')">
 	 				
 	  				<input class="button" type="button" name="plusmin" value="+/-" onclick="ToggleSign()">
-	  				<input class="button" type="button" name="zero" value="0" onclick="document.Calculator.Display.value += '0'">
+	  				<input class="button" type="button" name="zero" value="0" onclick="Digz('0')">
 	  				<input class="button" type="button" name="two" value="." onclick="Dot()">
 	  				<input class="button" type="button" name="result" value="=" onclick="equal()">
 	  				

@@ -1,6 +1,13 @@
+function Digz (num){
+	document.Calculator.Display.value += num;
+}
+
+
+
 function equal(){
 	document.Calculator.Display.value = eval(document.Calculator.Display.value);
 }
+
 function del(){
 				var word = document.Calculator.Display.value;
 				epp = word.length;
@@ -49,14 +56,18 @@ function DoInverse(){
 	document.Calculator.Display.value = 1/word;
 }
 
+
+
 function ToggleSign(){
 	word = document.Calculator.Display.value;
 	ridi = word.length - 1;
-	if (word.indexOf('-') == -1){
-		document.Calculator.Display.value = "-" + word;
-	}else if(word.indexOf('-') == 0){
-		document.Calculator.Display.value = word.substring(1);
-	}else{
-		document.Calculator.Display.value = word;
+	if (word.length > 0){
+		if (word.indexOf('-') == -1){
+			document.Calculator.Display.value = "-" + word;
+		}else if (word.indexOf('-') == 0) {
+			document.Calculator.Display.value = word.substring(1);
+		}else{
+			document.Calculator.Display.value = word;
+		}
 	}
 }
